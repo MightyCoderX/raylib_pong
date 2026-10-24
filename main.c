@@ -56,6 +56,7 @@ int main(void) {
     while(!WindowShouldClose()) {
         BeginDrawing();
 
+        // TODO: remove this debug thing from release builds
         if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
             Vector2 mpos = GetMousePosition();
             ball.pos.x = mpos.x;
