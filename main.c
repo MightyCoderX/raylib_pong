@@ -60,8 +60,6 @@ int main(void) {
             Vector2 mpos = GetMousePosition();
             ball.pos.x = mpos.x;
             ball.pos.y = mpos.y;
-            // ball.vel.x = 0;
-            // ball.vel.y = 0;
             ball.vel.x = 10;
             ball.vel.y = 0;
         }
@@ -88,9 +86,6 @@ int main(void) {
         DrawCircle(ball.pos.x, ball.pos.y, ball.radius, ORANGE);
 
         EndDrawing();
-
-        // applyForce(&ball, 0, 1); // "gravity"
-        // applyForce(&ball, 1, 0); // "wind"
         update();
     }
 
@@ -114,7 +109,6 @@ void edges() {
         }
         ball.pos.x = screenWidth / 2;
         ball.pos.y = screenHeight / 2;
-        // ball.vel.x = -ball.vel.x;
     }
 
     bool top = ball.pos.y - ball.radius <= 0;
@@ -151,13 +145,6 @@ static void paddle_collide(Paddle paddle) {
         ball.vel.x = -ball.vel.x * 1;
         ball.vel.y += paddle.vy * 0.1;
     }
-
-    // top or bottom side of rect
-    // if((bx + r >= x1 && bx - r < x2)
-    //     && ((by + r >= y1 && by + r < y2) || (by - r <= y2 && by + r > y1))) {
-    //     ball.vel.y *= -1;
-    //     printf("collided top or bottom\n");
-    // }
 }
 
 void update(void) {
